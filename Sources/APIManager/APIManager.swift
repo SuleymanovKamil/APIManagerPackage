@@ -1,15 +1,19 @@
 import Foundation
 
-public protocol APIManager {
-    func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError>
-}
-
-
 @available(iOS 15.0, *)
-extension APIManager {
+public class APIManager {
+    static var shared = APIManager()
+
     private var boundaryString: String {
         return "Boundary-\(NSUUID().uuidString)"
     }
+
+    private let acceptLanguage: String = {
+        let acceptLanguage = Locale.current.acceptLanguage
+        return acceptLanguage
+    }()
+
+    private init () {}
 
     func sendRequest<T: Codable> (
         model: T.Type,
@@ -95,6 +99,7 @@ private extension APIManager {
         request.httpMethod = endpoint.requestType.rawValue
 
         var header = endpoint.header ?? [:]
+        header["Accept-Language"] = acceptLanguage
 
         request.allHTTPHeaderFields = header
 
