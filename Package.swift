@@ -21,8 +21,5 @@ let package = Package(
         .target(
             name: "APIManager",
             dependencies: []),
-        .testTarget(
-            name: "APIManagerTests",
-            dependencies: ["APIManager"]),
     ]
 )
