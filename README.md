@@ -20,3 +20,39 @@ extension Endpoint {
     }
 }
 ```
+
+Example of usage:
+
+Store:
+```
+ func getData() async throws -> Model {
+        guard let result = await APIManager().sendRequest(
+            model: Model.self,
+            endpoint: Endpoint
+        ) else {
+            throw RequestError.statusNotOk
+        }
+
+        switch result {
+        case .success(let response):
+            return response
+        case .failure:
+            throw RequestError.statusNotOk
+        }
+    }
+```
+
+Fetch data
+
+```
+ @MainActor func fetchData() async throws -> Model? {
+        do {
+            let result = try await store.getData()
+            return result
+        } catch {
+            print(#function, error.localizedDescription)
+            return nil
+        }
+    }
+```
+
