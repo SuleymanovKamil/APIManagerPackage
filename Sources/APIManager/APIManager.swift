@@ -1,7 +1,7 @@
 import Foundation
 
 @available(iOS 15.0, *)
-class APIManager {
+public class APIManager {
     static var shared = APIManager()
 
     private var boundaryString: String {

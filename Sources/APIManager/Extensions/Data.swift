@@ -1,19 +1,19 @@
 import Foundation
 
-extension Data {
+public extension Data {
     mutating func appendString(string: String) {
         let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
         append(data!)
     }
 }
 
-extension Data {
+public extension Data {
     func decode<T: Codable>(model: T.Type) -> T? {
          return try? JSONDecoder().decode(model.self, from: self)
     }
 }
 
-extension Data {
+public extension Data {
     // NSString gives us a nice sanitized debugDescription
     // How to use:
     // let str = "{\"foo\": \"bar\"}".data(using: .utf8)!.prettyPrintedJSONString!

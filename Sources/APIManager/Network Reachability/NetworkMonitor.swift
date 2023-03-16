@@ -2,7 +2,7 @@ import SwiftUI
 import Network
 
 @available(iOS 13.0, *)
-final actor NetworkMonitor {
+public final actor NetworkMonitor {
      static func checkConnection() async -> Bool {
         typealias Continuation = CheckedContinuation<Bool, Never>
         return await withCheckedContinuation({ (continuation: Continuation) in

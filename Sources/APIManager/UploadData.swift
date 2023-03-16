@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UploadData {
+public struct UploadData {
     let mimetype: String?
     let file: Data
 }

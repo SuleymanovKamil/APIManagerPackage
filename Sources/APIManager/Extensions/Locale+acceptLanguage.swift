@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Locale {
+public extension Locale {
     var acceptLanguage: String {
         identifier.replacingOccurrences(of: "_", with: "-")
     }

@@ -1,6 +1,6 @@
 import Foundation
 
-enum RequestError: Error {
+public enum RequestError: Error {
     case statusNotOk
     case decodingError(DecodingError)
     case invalidURL
