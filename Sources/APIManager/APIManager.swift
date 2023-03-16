@@ -2,7 +2,7 @@ import Foundation
 
 @available(iOS 15.0, *)
 public class APIManager {
-    static var shared = APIManager()
+    public var shared = APIManager()
 
     private var boundaryString: String {
         return "Boundary-\(NSUUID().uuidString)"
@@ -15,7 +15,7 @@ public class APIManager {
 
     private init () {}
 
-    func sendRequest<T: Codable> (
+    public func sendRequest<T: Codable> (
         model: T.Type,
         endpoint: Endpoint,
         file: UploadData? = nil,
