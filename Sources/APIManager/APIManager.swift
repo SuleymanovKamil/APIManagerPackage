@@ -1,5 +1,6 @@
 import Foundation
 
+@available(iOS 13.0, *)
 public class APIManager {
     private var boundaryString: String {
         return "Boundary-\(NSUUID().uuidString)"
@@ -81,6 +82,7 @@ public class APIManager {
 
 // MARK: - Private
 
+@available(iOS 13.0, *)
 private extension APIManager {
     func createGetRequestWithURLComponents(
         url: URL,
