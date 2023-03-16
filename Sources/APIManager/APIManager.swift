@@ -2,8 +2,6 @@ import Foundation
 
 @available(iOS 15.0, *)
 public class APIManager {
-    public var shared = APIManager()
-
     private var boundaryString: String {
         return "Boundary-\(NSUUID().uuidString)"
     }
@@ -12,9 +10,7 @@ public class APIManager {
         let acceptLanguage = Locale.current.acceptLanguage
         return acceptLanguage
     }()
-
-    private init () {}
-
+    
     public func sendRequest<T: Codable> (
         model: T.Type,
         endpoint: Endpoint,
