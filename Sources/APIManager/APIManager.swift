@@ -13,7 +13,7 @@ public class APIManager {
         return acceptLanguage
     }()
 
-    private init () {}
+    public init () {}
 
     func sendRequest<T: Codable> (
         model: T.Type,
