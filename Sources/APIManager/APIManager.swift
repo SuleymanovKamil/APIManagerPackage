@@ -1,6 +1,6 @@
 import Foundation
 
-protocol APIManager {
+public protocol APIManager {
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError>
 }
 
